@@ -1,0 +1,87 @@
+{
+  "_schema_version": "1.0",
+  "_notes": "Personal and family data for PDF form filling. Values set to null are unknown and should be asked when needed.",
+  "members": [
+    {
+      "id": "parent_1",
+      "role": "parent",
+      "relationship_to_children": "father",
+      "first_name": null,
+      "last_name": null,
+      "date_of_birth": null,
+      "birth_number": null,
+      "place_of_birth": null,
+      "nationality": null,
+      "citizenship": null,
+      "id_card_number": null,
+      "passport_number": null,
+      "phone": null,
+      "email": null,
+      "employer": null,
+      "job_title": null,
+      "permanent_address": {
+        "street": null,
+        "city": null,
+        "zip": null,
+        "country": null
+      },
+      "mailing_address": null,
+      "bank_account": null,
+      "iban": null,
+      "data_box_id": null
+    },
+    {
+      "id": "parent_2",
+      "role": "parent",
+      "relationship_to_children": "mother",
+      "first_name": null,
+      "last_name": null,
+      "date_of_birth": null,
+      "birth_number": null,
+      "place_of_birth": null,
+      "nationality": null,
+      "citizenship": null,
+      "id_card_number": null,
+      "passport_number": null,
+      "phone": null,
+      "email": null,
+      "employer": null,
+      "job_title": null,
+      "permanent_address": null,
+      "mailing_address": null,
+      "bank_account": null,
+      "iban": null,
+      "data_box_id": null
+    },
+    {
+      "id": "child_1",
+      "role": "child",
+      "first_name": null,
+      "last_name": null,
+      "date_of_birth": null,
+      "birth_number": null,
+      "place_of_birth": null,
+      "nationality": null,
+      "citizenship": null,
+      "permanent_address": null,
+      "school": {
+        "name": null,
+        "address": null,
+        "class": null,
+        "grade": null
+      },
+      "health": {
+        "insurance_company": null,
+        "insurance_number": null,
+        "pediatrician": null,
+        "pediatrician_address": null,
+        "allergies": null,
+        "chronic_conditions": null,
+        "dietary_restrictions": null,
+        "medications": null,
+        "blood_type": null,
+        "vaccination_status": null
+      }
+    }
+  ]
+}
