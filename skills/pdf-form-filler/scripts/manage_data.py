@@ -31,7 +31,10 @@ from copy import deepcopy
 from pathlib import Path
 
 DEFAULT_DATA_DIR = os.path.expanduser("~/.config/pdf-form-filler")
-DEFAULT_DATA_FILE = os.path.join(DEFAULT_DATA_DIR, "personal_data.json")
+DEFAULT_DATA_FILE = os.environ.get(
+    "PDF_FORM_FILLER_DATA",
+    os.path.join(DEFAULT_DATA_DIR, "personal_data.json")
+)
 TEMPLATE_FILE = os.path.join(os.path.dirname(__file__), "..", "references", "personal_data_template.json")
 
 

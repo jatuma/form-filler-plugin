@@ -20,7 +20,13 @@ Drop a PDF and say "fill this for my son" or "fill with my info". Claude asks fo
 
 ## Data
 
-Stored at `~/.config/pdf-form-filler/personal_data.json`. Manage with (replace `$PLUGIN_ROOT` with the path to this directory):
+Stored at `~/.config/pdf-form-filler/personal_data.json` by default. To use a synced location (Dropbox, OneDrive, iCloud, etc.), set the `PDF_FORM_FILLER_DATA` environment variable — add it to your shell profile and Claude Code will pick it up automatically:
+
+```bash
+export PDF_FORM_FILLER_DATA="$HOME/Dropbox/personal_data.json"
+```
+
+Manage data with (replace `$PLUGIN_ROOT` with the path to this directory):
 
 ```bash
 python "$PLUGIN_ROOT/skills/pdf-form-filler/scripts/manage_data.py" show                    # view all

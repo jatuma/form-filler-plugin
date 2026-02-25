@@ -9,14 +9,30 @@ Fill PDF forms using stored personal and family data. Ask for anything unknown a
 
 ## Data Storage
 
-Personal data is stored at `~/.config/pdf-form-filler/personal_data.json`.
+Personal data is stored at `~/.config/pdf-form-filler/personal_data.json` by default.
+Override by setting the `PDF_FORM_FILLER_DATA` environment variable to any path (useful for synced/shared storage):
+```bash
+export PDF_FORM_FILLER_DATA="/path/to/Dropbox/personal_data.json"
+```
 Management script: `${CLAUDE_PLUGIN_ROOT}/skills/pdf-form-filler/scripts/manage_data.py`
 
 ### First-time Setup
 
-If the data file does not exist, initialize it:
+If the data file does not exist, **ask the user where they want to store it before initializing**:
+
+> I need to create a file to store your personal data. Where should I save it?
+> - **Default** – `~/.config/pdf-form-filler/personal_data.json` (local only)
+> - **Synced** – a path inside Dropbox, OneDrive, iCloud Drive, etc. (shared across devices)
+>
+> If you choose a synced path, also add `export PDF_FORM_FILLER_DATA="<path>"` to your shell profile so it's used automatically in future sessions.
+
+Then initialize with the chosen path (use `--data-file` if not the default):
 ```bash
+# Default path
 python "${CLAUDE_PLUGIN_ROOT}/skills/pdf-form-filler/scripts/manage_data.py" init
+
+# Custom/synced path
+python "${CLAUDE_PLUGIN_ROOT}/skills/pdf-form-filler/scripts/manage_data.py" init --data-file "/path/to/synced/personal_data.json"
 ```
 Then ask the user for basic info about themselves and family members before proceeding with the form.
 
@@ -49,7 +65,7 @@ Follow these steps in order for every form-filling request:
 ### Step 1: Load Personal Data
 
 1. Run `python "${CLAUDE_PLUGIN_ROOT}/skills/pdf-form-filler/scripts/manage_data.py" show` to load all stored data.
-2. If the command fails (file not found), run `init` first, then ask the user for basic family info before continuing.
+2. If the command fails (file not found), this is the first use — follow the **First-time Setup** procedure above (ask about storage location, then `init`), then collect basic family info before continuing.
 
 ### Step 2: Identify the Target Person
 
